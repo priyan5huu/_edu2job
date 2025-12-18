@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Edu2Job - Create your account">
+    <title>Register - Edu2Job</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <style>
+        body {
+            background-image: radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .auth-container {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            min-height: 650px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .auth-form-section {
+            flex: 1.1;
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: auto;
+            max-height: 90vh;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafbff 100%);
+        }
+
+        .auth-brand-section {
+            flex: 0.9;
+            background: linear-gradient(135deg, #1a1a1a 0%, #059669 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Enhanced decorative elements */
+        .auth-brand-section::before,
+        .auth-brand-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .auth-brand-section::before {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .auth-brand-section::after {
+            width: 300px;
+            height: 300px;
+            bottom: -80px;
+            left: -80px;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.08;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.12;
+            }
+        }
+
+        .auth-header {
+            margin-bottom: 2.5rem;
+            animation: fadeInDown 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .auth-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #1e293b 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .auth-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .form-group:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .form-group:nth-child(2) {
+            animation-delay: 0.35s;
+        }
+
+        .form-group:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .form-group:nth-child(4) {
+            animation-delay: 0.45s;
+        }
+
+        .form-group:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .form-group:nth-child(6) {
+            animation-delay: 0.55s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .auth-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .auth-link a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .auth-link a:hover::after {
+            width: 100%;
+        }
+
+        .password-strength {
+            height: 5px;
+            background: rgba(15, 23, 42, 0.06);
+            margin-top: 0.625rem;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.4s;
+            border-radius: 10px;
+        }
+
+        .illustration-container {
+            width: 100%;
+            max-width: 350px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        @keyframes floatSlow {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .illustration-container svg {
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+        }
+
+        .brand-tagline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-sub {
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+            max-width: 85%;
+            margin: 0 auto;
+        }
+
+        .form-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.375rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Input focus glow effect */
+        .form-control:focus+.form-text {
+            color: var(--primary);
+        }
+
+        @media (max-width: 968px) {
+            .auth-container {
+                max-width: 600px;
+            }
+
+            .auth-brand-section {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .auth-container {
+                flex-direction: column;
+                border-radius: 16px;
+            }
+
+            .auth-form-section {
+                padding: 2.5rem 1.75rem;
+            }
+
+            .auth-title {
+                font-size: 1.875rem;
+            }
+        }
+
+        /* Loading spinner for button */
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            left: 50%;
+            margin-left: -8px;
+            margin-top: -8px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="auth-form-section">
+            <div class="auth-header">
+                <h1 class="auth-title">Create Account</h1>
+                <p class="auth-subtitle">Start your journey to the perfect career</p>
+            </div>
+
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label class="form-label" for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="Choose a username" required
+                        autocomplete="username" minlength="3" aria-label="Username">
+                    <small class="form-text">At least 3 characters</small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com" required
+                        autocomplete="email" aria-label="Email Address">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Create a strong password"
+                        required autocomplete="new-password" minlength="6" aria-label="Password">
+                    <div class="password-strength" aria-hidden="true">
+                        <div class="strength-bar" id="strengthBar"></div>
+                    </div>
+                    <div id="passwordFeedback" class="form-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password"
+                        required autocomplete="new-password" aria-label="Confirm Password">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="securityQuestion">Security Question</label>
+                    <select id="securityQuestion" class="form-control" required aria-label="Security Question">
+                        <option value="">Select a security question</option>
+                        <option value="What was the name of your first pet?">What was the name of your first pet?
+                        </option>
+                        <option value="In what city were you born?">In what city were you born?</option>
+                        <option value="What is the name of your elementary school?">What is the name of your elementary
+                            school?</option>
+                        <option value="What is your favorite book?">What is your favorite book?</option>
+                        <option value="What is your favorite food?">What is your favorite food?</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="securityAnswer">Security Answer</label>
+                    <input type="text" id="securityAnswer" class="form-control" placeholder="Your answer" required
+                        aria-label="Security Answer">
+                </div>
+
+                <button type="submit" class="btn btn-primary" aria-label="Create Account">Create Account</button>
+
+                <div class="auth-link">
+                    Already have an account? <a href="login.html">Sign In</a>
+                </div>
+            </form>
+        </div>
+
+        <div class="auth-brand-section" aria-hidden="true">
+            <div class="illustration-container">
+                <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-label="Education to Job illustration">
+                    <defs>
+                        <linearGradient id="cardGrad" x1="0" y1="0" x2="400" y2="300" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="white" stop-opacity="0.25" />
+                            <stop offset="1" stop-color="white" stop-opacity="0.1" />
+                        </linearGradient>
+                        <linearGradient id="glow" x1="200" y1="150" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="white" stop-opacity="0.2" />
+                            <stop offset="1" stop-color="white" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                    <style>
+                        .float-1 {
+                            animation: float1 6s ease-in-out infinite;
+                        }
+
+                        .float-2 {
+                            animation: float2 7s ease-in-out infinite;
+                        }
+
+                        .float-3 {
+                            animation: float3 5s ease-in-out infinite;
+                        }
+
+                        @keyframes float1 {
+
+                            0%,
+                            100% {
+                                transform: translateY(0);
+                            }
+
+                            50% {
+                                transform: translateY(-10px);
+                            }
+                        }
+
+                        @keyframes float2 {
+
+                            0%,
+                            100% {
+                                transform: translateY(0);
+                            }
+
+                            50% {
+                                transform: translateY(-15px);
+                            }
+                        }
+
+                        @keyframes float3 {
+
+                            0%,
+                            100% {
+                                transform: translateY(0);
+                            }
+
+                            50% {
+                                transform: translateY(-8px);
+                            }
+                        }
+                    </style>
+
+                    <!-- Background Glow -->
+                    <circle cx="200" cy="150" r="120" fill="url(#glow)" />
+
+                    <!-- Connecting Lines (Network) -->
+                    <path d="M100 200 L140 120 L260 120 L300 200" stroke="white" stroke-width="1" stroke-opacity="0.3"
+                        stroke-dasharray="4 4" />
+                    <circle cx="100" cy="200" r="3" fill="white" fill-opacity="0.5" />
+                    <circle cx="300" cy="200" r="3" fill="white" fill-opacity="0.5" />
+
+                    <!-- Main Dashboard Card -->
+                    <g class="float-1">
+                        <rect x="80" y="80" width="240" height="160" rx="16" fill="url(#cardGrad)" stroke="white"
+                            stroke-width="1" stroke-opacity="0.4" style="backdrop-filter: blur(10px);" />
+                        <!-- UI Elements inside card -->
+                        <rect x="100" y="100" width="40" height="40" rx="10" fill="white" fill-opacity="0.3" />
+                        <rect x="155" y="105" width="120" height="10" rx="5" fill="white" fill-opacity="0.6" />
+                        <rect x="155" y="125" width="80" height="10" rx="5" fill="white" fill-opacity="0.3" />
+
+                        <!-- Graph Area -->
+                        <path d="M100 190 L140 170 L180 200 L220 160 L260 180 L300 150" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8" fill="none" />
+                        <circle cx="220" cy="160" r="4" fill="#10b981" />
+                        <circle cx="300" cy="150" r="4" fill="#10b981" />
+                    </g>
+
+                    <!-- Floating Success Badge -->
+                    <g class="float-2" transform="translate(280, 50)">
+                        <rect width="70" height="70" rx="14" fill="#10b981" fill-opacity="0.9"
+                            style="filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));" />
+                        <path d="M22 36 L30 44 L48 26" stroke="white" stroke-width="4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </g>
+
+                    <!-- Floating Profile/Skill Badge -->
+                    <g class="float-3" transform="translate(40, 140)">
+                        <rect width="60" height="60" rx="12" fill="white" fill-opacity="0.2" stroke="white"
+                            stroke-width="1" stroke-opacity="0.4" style="backdrop-filter: blur(5px);" />
+                        <circle cx="30" cy="30" r="15" stroke="white" stroke-width="2" stroke-opacity="0.8" />
+                        <path d="M30 15 V20 M30 40 V45 M15 30 H20 M40 30 H45" stroke="white" stroke-width="2"
+                            stroke-opacity="0.6" />
+                    </g>
+                </svg>
+            </div>
+            <div class="brand-tagline">Create Your Account</div>
+            <div class="brand-sub">Join thousands discovering their perfect career path with AI-powered insights</div>
+        </div>
+    </div>
+
+    <div id="toastContainer" style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 2000;" role="region"
+        aria-label="Notifications"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script>
+        // Password Strength Meter
+        const passwordInput = document.getElementById('password');
+        const strengthBar = document.getElementById('strengthBar');
+        const feedback = document.getElementById('passwordFeedback');
+
+        passwordInput.addEventListener('input', function () {
+            const val = this.value;
+            let strength = 0;
+            let message = '';
+            let color = '#E2E8F0';
+
+            if (val.length >= 8) strength += 1;
+            if (val.match(/[A-Z]/)) strength += 1;
+            if (val.match(/[0-9]/)) strength += 1;
+            if (val.match(/[^A-Za-z0-9]/)) strength += 1;
+
+            let width = '0%';
+            switch (strength) {
+                case 0: width = '0%'; message = ''; break;
+                case 1: width = '25%'; color = '#ef4444'; message = 'Weak'; break;
+                case 2: width = '50%'; color = '#f59e0b'; message = 'Fair'; break;
+                case 3: width = '75%'; color = '#3b82f6'; message = 'Good'; break;
+                case 4: width = '100%'; color = '#10b981'; message = 'Strong'; break;
+            }
+
+            strengthBar.style.width = width;
+            strengthBar.style.backgroundColor = color;
+            feedback.textContent = message;
+            feedback.style.color = color;
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const securityQuestion = document.getElementById('securityQuestion').value;
+            const securityAnswer = document.getElementById('securityAnswer').value.trim();
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+
+            if (!username || !email || !password || !confirmPassword || !securityQuestion || !securityAnswer) {
+                Utils.showToast('Please fill in all fields', 'error');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                Utils.showToast('Passwords do not match', 'error');
+                return;
+            }
+
+            if (password.length < 6) {
+                Utils.showToast('Password must be at least 6 characters', 'error');
+                return;
+            }
+
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Creating Account...';
+
+            try {
+                const response = await fetch(`${CONFIG.API_BASE_URL}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username,
+                        email,
+                        password,
+                        security_question: securityQuestion,
+                        security_answer: securityAnswer
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    Utils.showToast('Account created successfully! Redirecting...', 'success');
+                    setTimeout(() => window.location.href = 'login.html', 1500);
+                } else {
+                    Utils.showToast(data.message || 'Registration failed', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            } catch (error) {
+                console.error('Registration error:', error);
+                Utils.showToast('Server error. Please try again later.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    </script>
+</body>
+
+</html>
